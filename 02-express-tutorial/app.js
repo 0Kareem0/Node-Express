@@ -1,24 +1,14 @@
-const express = require('express')
-const app = express()
-const path = require('path')
+const express = require(`express`)
+const app = express ()
+const { products } = require(`./data`)
 const port = 5000
 
-
-app.use(express.static('./public'))
-
-// app.get('/', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, './navbar-app/index.html'))
-// })
-
-
-app.get('*', (req,res) =>{
-    res.status(404).send('resource not found')
+app.get(`/` , (req , res) =>{
+    res.send(products)
 })
 
 
-app.listen(port, () => {
-    console.log('Server is listening on port 5000....');
+app.listen(port, () =>{
+    console.log(`Server is listening on port ${port}...`);
     
 })
-
-console.log(path.resolve(__dirname, './navbar-app/index.html'));
