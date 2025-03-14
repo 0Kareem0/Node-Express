@@ -3,6 +3,9 @@ const app = express()
 const {products} = require(`./data`)
 const port = 3000
 
+console.log('process is started');
+
+
 app.get(`/`, (req, res) => {
     res.send(`<h1>Home Page</h1><a href="/api/products">products</a>`)
 })
