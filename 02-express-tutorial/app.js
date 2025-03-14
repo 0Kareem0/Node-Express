@@ -40,16 +40,22 @@ if(search){
 
     if(limit){
         sortedProducts = sortedProducts.slice(0 , Number(limit))
+        
     }
 
     if(sortedProducts.length < 1){
         return res.status(200).json({ sucess: true, data: [] })
+    
     }
 
     res.status(200).json(sortedProducts)
+    
 
 }
 )
+
+console.log('the prosess is done ✅');
+
 
 
 app.listen(port, () =>{
