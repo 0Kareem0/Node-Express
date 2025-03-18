@@ -1,11 +1,17 @@
 const express = require(`express`);
 const app = express()
 const port = 3000
+const morgan = require('morgan')
 const logger = require('./logger');
 const authorize = require('./authorize');
 const { products } = require('./data');
+const ipLogger = require('./ipLogger');
 
-app.use([authorize,logger])
+// is a built in middleware
+/*app.use(express.static('./public'))*/ 
+
+app.use(morgan('tiny'))
+app.use([ ipLogger,logger])
 
 app.get('/',  (req , res)=>{ 
     res.send('Home Page')
@@ -19,7 +25,7 @@ app.get('/api/products',  (req , res)=>{
     res.json(products)
 })
 
-app.get('/api/items',  (req , res)=>{
+app.get('/api/items', authorize , (req , res)=>{
     console.log(req.user);
     res.send('items')
 })
