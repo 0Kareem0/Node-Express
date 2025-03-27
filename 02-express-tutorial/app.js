@@ -34,6 +34,8 @@ if(name){
 })
 
 console.log(process.env);
+console.log("hello");
+
 
 
 app.listen(port, () =>{
