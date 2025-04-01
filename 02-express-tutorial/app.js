@@ -33,8 +33,7 @@ if(name){
     res.status(401).send('Enter anything u dumb fuck')
 })
 
-console.log(process.env);
-console.log("hello");
+
 
 
 
